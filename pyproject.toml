@@ -1,0 +1,60 @@
+[project]
+name = "podwise"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "accelerate>=0.26.0",
+    "anthropic==0.52.0",
+    "boto3==1.35.36",
+    "click>=8.2.1",
+    "dacite>=1.9.2",
+    "descript-audio-codec>=1.0.0",
+    "elevenlabs==2.1.0",
+    "fastapi==0.115.12",
+    "higgs-audio",
+    "huggingface-hub>=0.34.4",
+    "imageio-ffmpeg>=0.6.0",
+    "jieba>=0.42.1",
+    "json-repair>=0.49.0",
+    "langchain==0.3.25",
+    "langchain-anthropic==0.3.14",
+    "langchain-community==0.3.24",
+    "langchain-core==0.3.62",
+    "langchain-openai==0.3.18",
+    "langchain-tavily==0.2.0",
+    "langchain-text-splitters==0.3.8",
+    "langgraph==0.4.7",
+    "langgraph-checkpoint==2.0.26",
+    "langgraph-prebuilt==0.2.1",
+    "langgraph-sdk==0.1.70",
+    "langid>=1.1.6",
+    "langsmith==0.3.42",
+    "librosa>=0.11.0",
+    "loguru>=0.7.3",
+    "omegaconf>=2.3.0",
+    "openai==1.82.0",
+    "pandas>=2.3.1",
+    "pydantic>=2.11.5",
+    "pydub>=0.25.1",
+    "ruff==0.12.2",
+    "s3fs>=2025.7.0",
+    "semanticscholar==0.10.0",
+    "torch>=2.8.0",
+    "torchaudio>=2.8.0",
+    "torchvision>=0.23.0",
+    "transformers>=4.45.1,<4.47.0",
+    "uvicorn==0.34.3",
+    "vector-quantize-pytorch>=1.22.18",
+    "wikipedia==1.4.0",
+    "xmltodict==0.14.2",
+]
+
+[tool.uv.workspace]
+members = [
+    "higgs-audio",
+]
+
+[tool.uv.sources]
+higgs-audio = { workspace = true }
