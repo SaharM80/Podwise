@@ -1,29 +1,23 @@
-# Use Python 3.10 slim base image
-FROM python:3.10-slim
-
-# Prevent Python from writing .pyc files and enable unbuffered output
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-# Install system dependencies needed for some Python packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
+# Base Python image
+FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy only requirements first for caching
-COPY requirements.txt .
+# Upgrade pip
+RUN pip install --upgrade pip uvicorn
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy dependency files
+COPY pyproject.toml uv.lock ./
 
-# Copy app code and .env file into the container
+# Install dependencies from pyproject.toml directly
+RUN pip install .
+
+# Copy the app code
 COPY . .
 
-# Expose port 8000
+# Expose FastAPI port
 EXPOSE 8000
 
-# Run the app with uvicorn and pass the .env file explicitly
+# Run FastAPI with your .env
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--env-file", ".env"]

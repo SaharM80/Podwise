@@ -1,0 +1,28 @@
+# Environment and sensitive files
+.env
+
+# Python compiled files and caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Project folders to ignore
+scripts/
+higgs-audio/
+output/
+
+# Visual Studio / VS Code
+.vs/
+*.slnx.sqlite
+*.wsuo
+*.json
+
+# OS generated files
+.DS_Store
+Thumbs.db

@@ -13,7 +13,7 @@ dependencies = [
     "descript-audio-codec>=1.0.0",
     "elevenlabs==2.1.0",
     "fastapi==0.115.12",
-    "higgs-audio",
+    # "higgs-audio",
     "huggingface-hub>=0.34.4",
     "imageio-ffmpeg>=0.6.0",
     "jieba>=0.42.1",
@@ -41,20 +41,20 @@ dependencies = [
     "ruff==0.12.2",
     "s3fs>=2025.7.0",
     "semanticscholar==0.10.0",
-    "torch>=2.8.0",
-    "torchaudio>=2.8.0",
-    "torchvision>=0.23.0",
-    "transformers>=4.45.1,<4.47.0",
+    # "torch>=2.8.0",
+    # "torchaudio>=2.8.0",
+    # "torchvision>=0.23.0",
+    # "transformers>=4.45.1,<4.47.0",
     "uvicorn==0.34.3",
-    "vector-quantize-pytorch>=1.22.18",
+    # "vector-quantize-pytorch>=1.22.18",
     "wikipedia==1.4.0",
     "xmltodict==0.14.2",
 ]
 
 [tool.uv.workspace]
-members = [
-    "higgs-audio",
-]
+# members = [
+#     "higgs-audio",
+# ]
 
 [tool.uv.sources]
-higgs-audio = { workspace = true }
+# higgs-audio = { workspace = true }
