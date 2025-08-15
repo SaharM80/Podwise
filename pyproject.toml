@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "accelerate>=0.26.0",
+    # "accelerate>=0.26.0",
     "anthropic==0.52.0",
     "boto3==1.35.36",
     "click>=8.2.1",

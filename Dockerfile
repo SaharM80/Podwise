@@ -1,23 +1,22 @@
-# Base Python image
+# Use a lightweight Python image
 FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
 
-# Upgrade pip
-RUN pip install --upgrade pip uvicorn
+# Copy only requirements first (for caching)
+COPY requirements.txt .
 
-# Copy dependency files
-COPY pyproject.toml uv.lock ./
+# Upgrade pip and install dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Install dependencies from pyproject.toml directly
-RUN pip install .
-
-# Copy the app code
+# Copy your app code
 COPY . .
 
-# Expose FastAPI port
+# Expose FastAPI default port
 EXPOSE 8000
 
-# Run FastAPI with your .env
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--env-file", ".env"]
+# Run your app with uvicorn
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+

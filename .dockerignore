@@ -15,7 +15,7 @@ venv/
 # Project folders to ignore
 scripts/
 higgs-audio/
-output/
+tools/higgs_tts.py
 
 # Visual Studio / VS Code
 .vs/
