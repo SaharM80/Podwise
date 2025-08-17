@@ -1,0 +1,26 @@
+services:
+  frontend:
+    image: saharm80/podwise-frontend:1.0.2
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - podwise-network
+    volumes:
+      - ./nginx/app.conf:/etc/nginx/conf.d/app.conf:ro
+
+  backend:
+    image: saharm80/podwise:1.0.2
+    ports:
+      - "8000:8000"          
+    env_file:
+      - /home/saharmirzapoursahar/.env
+    restart: unless-stopped
+    networks:
+      - podwise-network
+
+networks:
+  podwise-network:
+    driver: bridge
