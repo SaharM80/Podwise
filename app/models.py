@@ -13,4 +13,3 @@ class OrganizerState(RetrieverState):
     cleaned_content: str
     transcript: str
 
-# TODO: rest of tts parameters

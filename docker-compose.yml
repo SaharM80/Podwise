@@ -10,7 +10,7 @@ services:
       - podwise-network
 
   backend:
-    image: saharm80/podwise:1.0.0
+    image: saharm80/podwise:1.0.1
     ports:
       - "8000:8000"
     env_file:
